@@ -1,0 +1,17 @@
+{{ if (.Context.Scratch.Get "TOCEnabled") }}
+    <section class="widget archives">
+        <div class="toc-actions">
+            <button type="button" class="export-pdf-button toc-export-pdf" onclick="window.print()">导出 PDF</button>
+        </div>
+        <header class="toc-header">
+            <div class="widget-icon">
+                {{ partial "helper/icon" "hash" }}
+            </div>
+            <h2 class="widget-title section-title">{{ T "article.tableOfContents" }}</h2>
+        </header>
+        
+        <div class="widget--toc">
+            {{ .Context.TableOfContents }}
+        </div>
+    </section>
+{{ end }}
