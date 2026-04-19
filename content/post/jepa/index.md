@@ -14,7 +14,7 @@ authors:
 math: true
 ---
 
-## 引言
+### 引言
 
 JEPA[^jepa]（Joint Embedding Predictive Architecture）是由 [LeCun](http://yann.lecun.com/) 等人提出的一类预测学习框架。本篇笔记分四个部分：先介绍 JEPA 的核心直觉（无数学推导），再解释 JEPA 的技术架构，然后以开源实现为例说明其推理与训练细节，最后补充一些问题与个人理解。
 
