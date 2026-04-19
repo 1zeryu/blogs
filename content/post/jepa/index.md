@@ -14,7 +14,7 @@ authors:
 math: true
 ---
 
-### 引言
+## 引言
 
 JEPA[^jepa]（Joint Embedding Predictive Architecture）是由 [LeCun](http://yann.lecun.com/) 等人提出的一类预测学习框架。本篇笔记分四个部分：先介绍 JEPA 的核心直觉（无数学推导），再解释 JEPA 的技术架构，然后以开源实现为例说明其推理与训练细节，最后补充一些问题与个人理解。
 
@@ -39,14 +39,14 @@ JEPA[^jepa]（Joint Embedding Predictive Architecture）是由 [LeCun](http://ya
 简言之，世界模型让智能体能在“脑内”展开未来，从而在不实际试错的情况下评估策略、降低探索成本。JEPA 可以被视为在表征学习与预测这条链路上提供了一种更稳健的建模方式：把原始输入映射到潜空间，并在潜空间里预测下一步的表征。
 
 
-### JEPA的核心理论
+## JEPA的核心理论
 
 人在记忆或回想一个场景时，并不会逐像素保存所有细节，而是把“关键对象的属性与关系”压缩成一段“摘要”。在机器学习里，这种摘要通常对应嵌入（embedding）：用一个低维向量保留对下游任务最有用的信息。
 
 JEPA 的核心思路是：先把输入的图像、视频、文本等原始数据编码成嵌入，再基于已经发生的上下文去预测“下一步嵌入”。换句话说，它用潜空间的“摘要”去推演“下一幕”，而不是直接在像素或 token 级别做逐点预测。
 
 
-### JEPA的技术架构
+## JEPA的技术架构
 
 JEPA 的技术架构并不复杂，如下图所示。它的主要组件包括：将原始数据压缩进表征空间的 Encoder（编码器），以及在条件信息（例如动作、历史上下文）下预测未来表征的 Predictor（预测器）。
 
@@ -63,11 +63,11 @@ JEPA 的技术架构并不复杂，如下图所示。它的主要组件包括：
 
 实际应用中，JEPA 往往还需要配合额外的稳定性设计，例如在表征上引入正则（如 SIGReg，参考 LeWorldModel[^le-wm]），或使用 EMA（Exponential Moving Average）等技巧来缓解表征坍缩与训练不稳定。
 
-### JEPA的代码实现
+## JEPA的代码实现
 
 本章将介绍 JEPA 的代码实现，参考的开源项目包括 [LeWorldModel](https://github.com/lucas-maes/le-wm)、[I-JEPA](https://github.com/facebookresearch/ijepa)。对每个实现，主要关注其下游任务设定，以及推理与训练的关键细节。
 
-#### LeWorldModel
+### LeWorldModel
 
 **下游任务与推理**：LeWorldModel[^le-wm] 选择的下游任务是规划（planning），可参考上文的[世界模型架构示意图](#world-models-figure)。直观上，JEPA 负责在潜空间里“滚动预测”，从而让规划算法能够在内部模拟器中评估动作序列的好坏。
 
@@ -139,11 +139,11 @@ def lejepa_forward(self, batch, stage, lambd):
 
 只学习预测损失容易带来收敛不稳定（表征坍缩）。LeWorldModel 通过引入 SIGReg[^sigreg] 正则化缓解这一问题。
 
-#### I-JEPA
+### I-JEPA
 
 WIP（有空再更新）
 
-### FAQ
+## FAQ
 
 * JEPA 是比 NTP 或 Diffusion 模型更好的建模方式？
 
