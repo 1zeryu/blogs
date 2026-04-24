@@ -1,6 +1,6 @@
 ---
 title: "从理论到实践，解析JEPA"
-description: "从 World Models 出发梳理 JEPA 的核心思想与技术架构，并介绍其在实际应用中的实现。"
+description: "从 World Models 出发梳理 JEPA 的核心思想与技术架构，并介绍其在实际应用中的实现"
 slug: jepa
 date: 2026-04-17 10:15:00+0800
 image: "" # 如果有封面图，可以将图片放在同一目录下并在此填入文件名（例如：cover.jpg）
