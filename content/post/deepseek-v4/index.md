@@ -16,7 +16,7 @@ math: true
 
 4 月 24 日，DeepSeek 发布其最新版本 DeepSeek-V4[^deepseek-v4] 技术报告，并同步开源代码与模型权重。DeepSeek-V4 在多项评测中达到 SOTA 水平；在效率方面，相较于 DeepSeek-V3.2，DeepSeek-V4-Pro 的单 token 推理 FLOPs 降至 27%，KV 缓存缩减至 10%，从而稳定支持百万级 token 的长上下文处理。
 
-DeepSeek-V4 技术报告包含四部分：算法架构、基础设施（infra）、预训练、后训练。本文结合公开的技术报告与代码，聚焦算法架构部分；其余内容可参考完整[技术报告](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf)。
+DeepSeek-V4 技术报告包含四部分内容：算法架构、基础设施（infra）、预训练、后训练。本文结合公开的技术报告与代码，聚焦算法架构部分；其余内容可参考完整[技术报告](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf)。
 
 
 ## 算法架构概述
